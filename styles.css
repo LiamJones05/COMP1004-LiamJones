@@ -1,6 +1,5 @@
-<body style="background-color:#a1daec;" >
 body{
-    background-color:#a1daec;
+    background-color:powderblue;
 }
 
 h1{
@@ -9,4 +8,13 @@ h1{
 
 p{
     text-align:center;
+}
+
+input{
+    text-align:center;
+}
+
+label{
+    display: block;
+    text-align: center;
 }
