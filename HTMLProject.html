@@ -1,36 +1,37 @@
 <!DOCTYPE html>
 <html lan="en">
 <head>
-    <link rel="stylesheet"
-          href="styles.css">
 <title>Web login save software</title>
 </head>
+<body style="background-color:#a1daec;">
+
+<script src="Output.js"> </script>
 
 <p1>This page is designed to help you manage usernames, passwords, an email addresses you have used to login into websites</p1>
 
 <h1 >Store new login</h1>
-<p >Please enter the following information </p>
+<p style="padding-left: 20px;">Please enter the following information </p>
 
 <form>
-<label >Website URL: </label> </br>
-<input style="height: 2cm;"type='text' id="NewURL" placeholder="Enter Website URL"/>
+<label style="padding-left: 20px;" >Website URL: </label> </br>
+<input style="padding-left: 20px;"style="height: 2cm;"type='text' id="NewURL" placeholder="Enter Website URL"/>
 </form>
 <p> </p>
 
 <form>
-<label >Username/Email:</label> </br>
-<input style="height: 2cm;" type='text'id="NewUsername" placeholder="Enter Username/Email"/>
+<label style="padding-left: 20px;">Username/Email:</label> </br>
+<input style="padding-left: 20px;"style="height: 2cm;" type='text'id="NewUsername" placeholder="Enter Username/Email"/>
 </form>
 <p> </p>
 
 
 <form>
-<label >Password/Pin :</label> </br>
-<input style="height: 2cm;"type='text' id="NewPassword" placeholder="Enter Password/Pin"/>
+<label style="padding-left: 20px;">Password/Pin :</label> </br>
+<input style="padding-left: 20px;" style="height: 2cm;"type='text' id="NewPassword" placeholder="Enter Password/Pin"/>
 </form>
 <p> </p>
 
-<input style="height: 3cm;" type="button" id="StoreButton" value="Submit" />
+<input style="padding-left: 10px;"style="height: 3cm;" type="button" id="StoreButton" value="Submit" onclick="StoreDetails();outputStrength />
 
 <p id="StrengthOutput">Password Strength (0-10): </p>
 
@@ -38,11 +39,11 @@
 
 <h1 >Access stored login details</h1>
 <form>
-    <label >URL of requested site :</label> </br>
-    <input type='text' id="RetrieveURL" placeholder="Enter URL"/>
+    <label style="padding-left: 20px;">URL of requested site :</label> </br>
+    <input style="padding-left: 20px;" type='text' id="RetrieveURL" placeholder="Enter URL"/>
     </form>
 <p> </p>
-    <input style="height: 3cm;" type="button" id="RetrieveButton"value="Request Login" />
+    <input style="padding-left: 10px;"style="height: 3cm;" type="button" id="RetrieveButton"value="Request Login" onclick="ShowData()"/>
 
 </body>
 </html>
