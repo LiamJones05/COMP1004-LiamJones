@@ -5,9 +5,10 @@
 </head>
 <body style="background-color:#a1daec;">
 
-<script src="Output.js"> </script>
+<script src="Output.js" </script>
+<link /rel="stylesheet" href="Format.css">
 
-<p1>This page is designed to help you manage usernames, passwords, an email addresses you have used to login into websites</p1>
+<p1>This page is designed to help you manage usernames, passwords, and email addresses you have used to login into websites</p1>
 
 <h1 >Store new login</h1>
 <p style="padding-left: 20px;">Please enter the following information </p>
@@ -26,12 +27,12 @@
 
 
 <form>
-<label style="padding-left: 20px;">Password/Pin :</label> </br>
+<label style="padding-left: 20px;">Password:</label> </br>
 <input style="padding-left: 20px;" style="height: 2cm;"type='text' id="NewPassword" placeholder="Enter Password/Pin"/>
 </form>
 <p> </p>
 
-<input style="padding-left: 10px;"style="height: 3cm;" type="button" id="StoreButton" value="Submit" onclick="StoreDetails();outputStrength />
+<input style="padding-left: 10px;"style="height: 3cm;" type="button" id="StoreButton" value="Submit" onclick="StoreDetails();outputStrength()" />
 
 <p id="StrengthOutput">Password Strength (0-10): </p>
 

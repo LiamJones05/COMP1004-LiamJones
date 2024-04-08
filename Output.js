@@ -2,9 +2,27 @@ const button = document.querySelector("input");
 
 button.addEventListener("click", outputDetails);
 
-function outputStrength(){
+function outputStrength() {
+    var CheckPass = document.getElementById('NewPassword').value;
+    var PassStrength = 0;
+    if (CheckPass.length >=8) {//check length >=8
+        PassStrength += 2;
+        if (CheckPass.length >=12) {//check length >=12
+            PassStrength += 2;
+        }
+    }
+    if (CheckPass.match(/[A-Z]/)) {//Check password contains at least one capital letter
+        
+        PassStrength += 2;
+    }
+    if (CheckPass.match(/\d/)) {
+        PassStrength += 2;
+    }
+    if (CheckPass.match(/[^a-zA-Z\d]/)) {
+        PassStrength += 2;
+    }
     var paragraph = document.getElementById("StrengthOutput");
-    paragraph.innerHTML = "Password Strength(0-10): 8"
+    paragraph.innerHTML = ("Password Strength(0-10): " + PassStrength);
 
 }
 
