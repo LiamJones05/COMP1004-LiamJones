@@ -5,46 +5,47 @@
 </head>
 <body style="background-color:#a1daec;">
 
-<script src="Output.js"></script> 
+    <script src="Output.js"></script>
 
 
-<p>This page is designed to help you manage usernames, passwords, and email addresses you have used to login into websites</p>
+    <p>This page is designed to help you manage usernames, passwords, and email addresses you have used to login into websites</p>
 
-<h1 >Store new login</h1>
-<p >Please enter the following information </p>
+    <h1>Store new login</h1>
+    <p>Please enter the following information </p>
 
-<form>
-<label style="padding-left: 30px;" >Website URL: </label> <br/>
-<input style="text-align: center; height: 0.8cm;"type='text' id="NewURL" placeholder="Enter Website URL"/>
-</form>
-<p> </p>
+    <form>
+        <label style="padding-left: 30px;">Website URL: </label> <br />
+        <input style="text-align: center; height: 0.8cm;" type='text' id="NewURL" placeholder="Enter Website URL" />
+    </form>
+    <p> </p>
 
-<form>
-<label style="padding-left: 20px;">Username/Email:</label> <br/>
-<input style="text-align: center; height: 0.8cm;" type='text' id="NewUsername" placeholder="Enter Username/Email" />
-</form>
-<p> </p>
-
-
-<form>
-<label style="padding-left: 20px;">Password:</label> <br/>
-<input style="text-align: center; height: 0.8cm;"type='text' id="NewPassword" placeholder="Enter Password/Pin" />
-</form>
-<p> </p>
-
-<input style="padding-left: 10px;height: 1cm;" type="button" id="StoreButton" value="Submit" onclick="StoreDetails();outputStrength()" />
-
-<p id="StrengthOutput">Password Strength (0-10): </p>
+    <form>
+        <label style="padding-left: 20px;">Username/Email:</label> <br />
+        <input style="text-align: center; height: 0.8cm;" type='text' id="NewUsername" placeholder="Enter Username/Email" />
+    </form>
+    <p> </p>
 
 
+    <form>
+        <label style="padding-left: 20px;">Password:</label> <br />
+        <input style="text-align: center; height: 0.8cm;" type='text' id="NewPassword" placeholder="Enter Password/Pin" />
+    </form>
+    <p> </p>
 
-<h1 >Access stored login details</h1>
-<form>
-    <label style="padding-left: 20px;">URL of requested site :</label> <br/>
-    <input style="text-align: center;height: 0.8cm" type='text' id="RetrieveURL" placeholder="Enter URL"/>
-</form>
+    <input style="padding-left: 10px;height: 1cm;" type="button" id="StoreButton" value="Submit" onclick="StoreDetails()" />
+    <input style="padding-left: 10px;height: 1cm;" type="button" id="PasswordButton" value="Submit" onclick="outputStrength()" />
 
-<p> </p>
-    <input style="padding-left: 10px;height: 1cm;" type="button" id="RetrieveButton"value="Request Login" onclick="ShowData()"/>
+    <p id="StrengthOutput">Password Strength (0-10): </p>
+
+
+
+    <h1>Access stored login details</h1>
+    <form>
+        <label style="padding-left: 20px;">URL of requested site :</label> <br />
+        <input style="text-align: center;height: 0.8cm" type='text' id="RetrieveURL" placeholder="Enter URL" />
+    </form>
+
+    <p> </p>
+    <input style="padding-left: 10px;height: 1cm;" type="button" id="RetrieveButton" value="Request Login" onclick="ShowData()" />
 </body>
 </html>
