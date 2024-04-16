@@ -26,20 +26,61 @@ function outputStrength() {
 
 }
 
+var FileCount = 0;
+function FileCountAdd() {
+    FileCount++;
+}
 
 function StoreDetails() {
     var URLData = document.getElementById('NewURL').value;
     var UsernameData = document.getElementById('NewUsername').value;
     var PasswordData = document.getElementById('NewPassword').value;
     alert("Following details stored:\nURL: " + URLData +"\nUsername: " + UsernameData + "\nPassword: " + PasswordData);
-    
+    JSONOut(URLData, UsernameData, PasswordData);
 }
 
-function ShowData() {
-    /*
-    var URLData = document.getElementById('NewURL').value;
-    var UsernameData = document.getElementById('NewUsername').value;
-    var PasswordData = document.getElementById('NewPassword').value;
-    */ //temp placeholder to get variable values into procedure
-    alert("" + URLData + "\nUsername: " + UsernameData + "\nPassword: " + PasswordData);
+
+function JSONOut(URL, Name, Pass) {
+    const NewLogin = { // create new json object
+        URL: URL,
+        UserName: Name,
+        Password: Pass
+    };
+
+    const jsonData = JSON.stringify(NewLogin, null, 2) //convert json object to json string
+    FileCountAdd();
+    localStorage.setItem(URL, jsonData);
 }
+
+
+function JSONIn() {
+    const retrievedData = localStorage.getItem(FileCount);
+        const parsedData = JSON.parse(retrievedData);
+        var JSONurl = JSON.stringify(parsedData.URL);
+        var JSONname = JSON.stringify(parsedData.UserName);
+        var JSONpass = JSON.stringify(parsedData.Password);
+        alert("Username: " + JSONname + "\nPassword: " + JSONpass);
+}
+
+/*
+function JSONIn(RequestedURL) {
+    
+    var FilesSearched = 0;
+    while (FilesSearched < FileCount) {
+        const retrievedData = localStorage.getItem(FilesSearched);
+        const parsedData = JSON.parse(retrievedData);
+        var JSONurl = JSON.stringify(parsedData.URL);
+        if (JSONurl == RequestedURL) {
+            
+            var JSONname = JSON.stringify(parsedData.UserName);
+            var JSONpass = JSON.stringify(parsedData.Password);
+            alert("Username: " + JSONname + "\nPassword: " + JSONpass);
+           
+            break;
+        }
+    }
+   
+    
+    */
+
+
