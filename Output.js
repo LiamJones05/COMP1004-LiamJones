@@ -34,13 +34,12 @@ function JSONOut() {
     var PasswordData = document.getElementById('NewPassword').value;
     alert("Following details stored:\nURL: " + URLData + "\nUsername: " + UsernameData + "\nPassword: " + PasswordData);
     const NewLogin = { // create new json object
-        NewURL: URLData,
         NewUserName: UsernameData,
         NewPassword: PasswordData
     };
 
     const jsonData = JSON.stringify(NewLogin, null, 2) //convert json object to json string
-    localStorage.setItem(NewURL, jsonData);
+    localStorage.setItem(URLData, jsonData);
 }
 
 
@@ -51,13 +50,7 @@ function SetURL() {
     JSONIn(SearchURL);
 }
 
-/*function JSONIn(URL) {
-    const retrievedData = localStorage.getItem(URL);
-    const parsedData = JSON.parse(retrievedData);
-    var JSONname = (parsedData.UsernameData);
-    var JSONpass = (parsedData.PasswordData);
-    alert("Username: " + JSONname + "\nPassword: " + JSONpass);
-}*/
+
 
 async function JSONIn(URL) {
     try {
@@ -65,7 +58,7 @@ async function JSONIn(URL) {
         const jsonData = localStorage.getItem(URL);
         const parsedString = JSON.parse(jsonData);
 
-        alert("Parsed: " + parsedString + "\njsonData: " + jsonData);
+        alert(jsonData);
 
         var JSONname = jsonData.UsernameData;
         var JSONpass = jsonData.PasswordData;
