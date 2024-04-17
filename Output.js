@@ -1,6 +1,6 @@
 const button = document.querySelector("input");
 
-button.addEventListener("click", outputDetails);
+
 
 function outputStrength() {
     var CheckPass = document.getElementById('NewPassword').value;
@@ -26,61 +26,57 @@ function outputStrength() {
 
 }
 
-var FileCount = 0;
-function FileCountAdd() {
-    FileCount++;
-}
 
-function StoreDetails() {
+
+function JSONOut() {
     var URLData = document.getElementById('NewURL').value;
     var UsernameData = document.getElementById('NewUsername').value;
     var PasswordData = document.getElementById('NewPassword').value;
-    alert("Following details stored:\nURL: " + URLData +"\nUsername: " + UsernameData + "\nPassword: " + PasswordData);
-    JSONOut(URLData, UsernameData, PasswordData);
-}
-
-
-function JSONOut(URL, Name, Pass) {
+    alert("Following details stored:\nURL: " + URLData + "\nUsername: " + UsernameData + "\nPassword: " + PasswordData);
     const NewLogin = { // create new json object
-        URL: URL,
-        UserName: Name,
-        Password: Pass
+        NewURL: URLData,
+        NewUserName: UsernameData,
+        NewPassword: PasswordData
     };
 
     const jsonData = JSON.stringify(NewLogin, null, 2) //convert json object to json string
-    FileCountAdd();
-    localStorage.setItem(URL, jsonData);
+    localStorage.setItem(NewURL, jsonData);
 }
 
 
-function JSONIn() {
-    const retrievedData = localStorage.getItem(FileCount);
-        const parsedData = JSON.parse(retrievedData);
-        var JSONurl = JSON.stringify(parsedData.URL);
-        var JSONname = JSON.stringify(parsedData.UserName);
-        var JSONpass = JSON.stringify(parsedData.Password);
-        alert("Username: " + JSONname + "\nPassword: " + JSONpass);
+
+function SetURL() {
+    var HTMLInputBox = document.getElementById("RetrieveURL");
+    var SearchURL = HTMLInputBox.value;
+    JSONIn(SearchURL);
 }
 
-/*
-function JSONIn(RequestedURL) {
-    
-    var FilesSearched = 0;
-    while (FilesSearched < FileCount) {
-        const retrievedData = localStorage.getItem(FilesSearched);
-        const parsedData = JSON.parse(retrievedData);
-        var JSONurl = JSON.stringify(parsedData.URL);
-        if (JSONurl == RequestedURL) {
-            
-            var JSONname = JSON.stringify(parsedData.UserName);
-            var JSONpass = JSON.stringify(parsedData.Password);
-            alert("Username: " + JSONname + "\nPassword: " + JSONpass);
-           
-            break;
-        }
+/*function JSONIn(URL) {
+    const retrievedData = localStorage.getItem(URL);
+    const parsedData = JSON.parse(retrievedData);
+    var JSONname = (parsedData.UsernameData);
+    var JSONpass = (parsedData.PasswordData);
+    alert("Username: " + JSONname + "\nPassword: " + JSONpass);
+}*/
+
+async function JSONIn(URL) {
+    try {
+        
+        const jsonData = localStorage.getItem(URL);
+        const parsedString = JSON.parse(jsonData);
+
+        alert("Parsed: " + parsedString + "\njsonData: " + jsonData);
+
+        var JSONname = jsonData.UsernameData;
+        var JSONpass = jsonData.PasswordData;
+        //alert("Username: " + JSONname + "\nPassword: " + JSONpass);
     }
-   
-    
-    */
+
+    catch (error) {
+        alert("That URL does not exist within the database")
+    }
+}
+
+
 
 
